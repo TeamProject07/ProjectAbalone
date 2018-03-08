@@ -1,0 +1,8 @@
+1. Execute the "__main__" in the file "state_space_input_generator.py".
+You can do it fron an IDE, or if you want to use the terminal (CMD in Windows),
+Type: "python state_space_generator.py" or "python3 state_space_input_generator.py"
+(For some OSs like Apple OS X)
+
+2. All generated files will be in the "ssg_tester_generated_inputs" folder.
+
+~ XOXO, Pashan

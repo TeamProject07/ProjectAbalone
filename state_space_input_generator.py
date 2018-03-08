@@ -10,24 +10,33 @@ Written by Pashan Irani <pashanirani@gmail.com>
 '''
 
 
-import random
+import random, os
 
 LETTERS = "ABCDEFGHI"
 COLORS = "bw"
 PIECES_PER_PLAYER = 14
-BLACK_COUNT = random.randint(0, PIECES_PER_PLAYER)
-WHITE_COUNT = random.randint(0, PIECES_PER_PLAYER)
+BLACK_COUNT = random.randint(1, PIECES_PER_PLAYER)
+WHITE_COUNT = random.randint(1, PIECES_PER_PLAYER)
 
 # The entry point of this file.
 if __name__ == '__main__':
 
+    # Join the path with the complete file name.
+    complete_path = os.path.join('ssg_tester_generated_inputs', "input.gen")
+
+    # Open the file for writing.
+    file = open(complete_path, "w")
+    output = ""
+
     used_spots = set()
 
+    #decide turn
     if random.randint(0, 1) == 0:
-        print("w")
+        output += "w\n"
     else:
-        print("b")
+        output += "b\n"
 
+    # get random locations
     while WHITE_COUNT != 0 and BLACK_COUNT != 0:
         row = random.choice(LETTERS)
         col = str(random.randint(1, 9))
@@ -35,14 +44,23 @@ if __name__ == '__main__':
         spot = row + col + color
 
         if spot not in used_spots:
-            print(spot)
+            output += spot
 
             if color == "b":
                 BLACK_COUNT -= 1
             elif color == "w":
                 WHITE_COUNT -= 1
 
+            if BLACK_COUNT == 0 or WHITE_COUNT == 0:
+                continue
+
+            output += ", "
+
         used_spots.add(spot)
+
+    # Write to the file and close it.
+    file.write(output)
+    file.close()
 
 
 
