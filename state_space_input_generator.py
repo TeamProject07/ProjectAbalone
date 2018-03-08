@@ -61,14 +61,3 @@ if __name__ == '__main__':
     # Write to the file and close it.
     file.write(output)
     file.close()
-
-
-
-
-
-
-
-
-
-
-
