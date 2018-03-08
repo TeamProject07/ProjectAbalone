@@ -14,6 +14,7 @@ action_log/
 
 # State Space Generator Tests
 ssg_tester_input/*
+ssg_tester_generated_inputs/*
 ssg_tester_output/*
 !*.gitkeep
 
